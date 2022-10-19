@@ -20,7 +20,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-size_t	ft_strlen(char *buf);
+int     ft_strlenn(char *buf);
 char	*get_next_line(int fd);
 char	*get_new_line(char *buffer);
 char	*first_line(int fd, char *buffer);

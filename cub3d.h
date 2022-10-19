@@ -12,6 +12,14 @@
 typedef struct s_cub3d
 {
     char    **map;
+    int     first_line;
 }           t_data;
+
+int     ft_check_cub(char *s);
+void    ft_clear(t_data *data);
+void    ft_check_map(t_data *data);
+void    ft_check_wall(t_data *data);
+void    ft_all_check_and_read_map(t_data *data, char *map);
+void    ft_check_for_long(t_data *data);
 
 #endif

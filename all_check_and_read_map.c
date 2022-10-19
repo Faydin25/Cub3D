@@ -53,7 +53,7 @@ void    ft_all_check_and_read_map(t_data *data, char *map)
     ft_read_map(data, map);
     ft_adjust(data->map);
     ft_check_wall(data);
-    ft_check_map(data);
+    ft_check_map(data);//buraya bak.
     ft_check_for_long(data);
     ft_check_once_to_map(data);
 }

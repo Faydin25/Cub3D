@@ -20,19 +20,21 @@ void    ft_check_map_next(t_data *data)
     int k;
 
     i = -1;
-    j = data->first_line - 1;
+    j = data->first_line;
     k = 0;
-    while (data->map[++j])
+    while (data->map[--j])
     {
         i = -1;
         while (data->map[j][++i])
         {
             if (data->map[j][i] == 'N' || data->map[j][i] == 'S' || \
-                data->map[j][i] == 'W' || data->map[j][i] == 'E')
+                data->map[j][i] == 'W' || data->map[j][i] == 'E' || \
+                data->map[j][i] == 'F' || data->map[j][i] == 'C')
                 k++;
+                break ;
         }
     }
-    if (k != 1)
+    if (k != 6)
     {
         printf("Map Error!\n");
         ft_clear(data);
@@ -53,7 +55,7 @@ void    ft_check_map(t_data *data)
         {
             if (data->map[j][i] != '1' && data->map[j][i] != '0' && \
             data->map[j][i] != 'N' && data->map[j][i] != 'S' && \
-            data->map[j][i] != 'W' && data->map[j][i] != 'E')
+            data->map[j][i] != 'W' && data->map[j][i] != 'E' && data->map[j][i] != '\n')
             {
                 printf("Wrong Map!\n");
                 ft_clear(data);

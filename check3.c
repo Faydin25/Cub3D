@@ -37,6 +37,7 @@ void    ft_control_line(t_data *data, int j)
     int k;
 
     k = 0;
+    total = 0;
     while (--j >= 0)
     {
         i = 0;
@@ -73,7 +74,6 @@ void    ft_control_line(t_data *data, int j)
         ft_clear(data);
         exit(0);
     }
-    printf("eee\n");
 }
 
 void    ft_check_once_to_map(t_data *data)

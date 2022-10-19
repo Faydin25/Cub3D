@@ -11,7 +11,7 @@ void    ft_go_color(char *line, t_data *data , int i)
         if (line[i] >= '0' && line[i] <= '9')
         {
             nbr = ft_atoi(line + i);
-            if (nbr >= 256 && nbr < 0)
+            if (nbr >= 256 || nbr < 0)
             {
                 printf("Error!\n");
                 ft_clear(data);
@@ -22,6 +22,7 @@ void    ft_go_color(char *line, t_data *data , int i)
         }
         else if (!(line[i] == ' ' || line[i] == '\n' || line[i] == ','))
         {
+            printf("%c\n-%i", line[i], i);//ne alaka aq
             printf("Error!\n");
             ft_clear(data);
             exit(0);
@@ -72,6 +73,7 @@ void    ft_control_line(t_data *data, int j)
         ft_clear(data);
         exit(0);
     }
+    printf("eee\n");
 }
 
 void    ft_check_once_to_map(t_data *data)

@@ -1,5 +1,22 @@
 #include "cub3d.h"
 
+void    ft_check_have_map(t_data *data)
+{
+    int i;
+    int j;
+
+    i = 0;
+    j = 0;
+    while (data->map[j] && data->map[j][0] != '1')
+        j++;
+    if (data->map[j] == 0)
+    {
+        printf("Map Error!\n");
+        ft_clear(data);
+        exit(0);
+    }
+}
+
 void    ft_read_map(t_data *data, char *cubfile)
 {
     int     i;
@@ -22,6 +39,52 @@ void    ft_read_map(t_data *data, char *cubfile)
     free(result);
 }
 
+int ft_len(char **map)
+{
+    int j;
+    int i;
+    int max;
+
+    j = 0;
+    while (map[j] && map[j][0] != '1')
+        j++;
+    max = 0;
+    while (map[j])
+    {
+        i = 0;
+        while (map[j][i])
+            i++;
+        if (i > max)
+            max = i;
+        j++;
+    }
+    return (max);
+}
+
+void    ft_addjust2(char **map)
+{
+    int len;
+    int j;
+    int i;
+
+    j = 0;
+    while (map[j] && map[j][0] != '1')
+        j++;
+    while (map[j])
+    {
+        if (map[j][0] == '\n')
+        {
+            i = 0;
+            len = ft_len(map);
+            map[j] = (char *)malloc(sizeof(len + 1));
+            while (i <= len)
+                map[j][i++] = '1';
+            map[j][i] = '\0';
+        }
+        j++;
+    }
+}
+
 void    ft_adjust(char **map)
 {
     int i;
@@ -40,6 +103,18 @@ void    ft_adjust(char **map)
         }
         j++;
     }
+    ft_addjust2(map);
+    i = 0;
+    j = 0;
+    while (map[j] && map[j][0] != '1')
+        j++;
+    printf("--------------------------\n");
+    while (map[j])
+    {
+        printf("%s\n", map[j]);
+        j++;
+    }
+    printf("--------------------------\n");
 }
 
 void    ft_all_check_and_read_map(t_data *data, char *map)
@@ -50,10 +125,11 @@ void    ft_all_check_and_read_map(t_data *data, char *map)
         printf("Extension Wrong!\n");
         exit(0);
     }
-    ft_read_map(data, map);
-    ft_adjust(data->map);
+    ft_read_map(data, map);//okey
+    ft_check_have_map(data);
+    ft_adjust(data->map);//okey
     ft_check_wall(data);
-    ft_check_map(data);//buraya bak.
+    ft_check_map(data);
     ft_check_for_long(data);
     ft_check_once_to_map(data);
 }

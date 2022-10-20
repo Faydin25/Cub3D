@@ -26,16 +26,3 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	aux = ft_lstlast(*lst);
 	aux->next = new;
 }
-/*
-int	main()
-{
-	t_list *ilk;
-	t_list *iki;
-	char dizi[] = "ilk kontent";
-	char dizi2[] = "ikinci kontent";
-	ilk = ft_lstnew(dizi);
-	iki = ft_lstnew(dizi2);
-
-	ft_lstadd_back(&ilk,iki);
-	printf("%s", (ilk)->next->content);
-}*/

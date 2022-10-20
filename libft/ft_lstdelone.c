@@ -19,29 +19,3 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *))
 	del(lst->content);
 	free(lst);
 }
-/*
-void	del(void *content)
-{
-	content = NULL;
-}
-
-#include <stdio.h>
-int main()
-{
-    t_list *ilk;
-    char dizi[] = "ilk content";
-    t_list *iki;
-    char dizi2[] = "ikinci content";
-    ilk = ft_lstnew(dizi);
-	iki = ft_lstnew(dizi2);
-	
-	
-	ft_lstadd_back(&ilk,iki);
-	printf("baglandı mı ?%s",(ilk)->next->content);
-    
-	
-	ft_lstdelone(iki,del);
-	ilk->next = NULL;
-
-	printf("%s",(ilk)->content);
-}*/

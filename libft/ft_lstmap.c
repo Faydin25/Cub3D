@@ -33,30 +33,3 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	}
 	return (new_lst);
 }
-/*
-void	*f(void *c)
-{
-	c = "deneme";
-	return (c);
-}
-
-void	del(void *con)
-{
-	con = NULL;
-}
-int main()
-{
-    t_list *ilk;
-    t_list *iki;
-
-	t_list *ikincilisteilkeleman;
-    char dizi[] = "ilk kontent";
-    char dizi2[] = "ikinci kontent";
-    ilk = ft_lstnew(dizi);
-    iki = ft_lstnew(dizi2);
-    ft_lstadd_back(&ilk,iki);
-
-	ikincilisteilkeleman = ft_lstmap(ilk,f,del);
-    printf("%s", (ikincilisteilkeleman)->content);
-    printf("%s", (ikincilisteilkeleman)->next->content);
-}*/

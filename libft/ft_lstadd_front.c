@@ -17,17 +17,3 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 	new->next = *lst;
 	*lst = new;
 }
-
-/*
-int	main()
-{
-	t_list *ilk;
-	char dizi[] = "ilk content";
-	t_list *iki;
-	char dizi2[] = "ikinci content";
-	ilk = ft_lstnew(dizi);
-	iki = ft_lstnew(dizi2);
-
-	ft_lstadd_front(&ilk,iki);
-	printf("%s",(ilk)->content);
-}*/

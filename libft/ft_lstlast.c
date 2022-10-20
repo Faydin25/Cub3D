@@ -20,14 +20,3 @@ t_list	*ft_lstlast(t_list *lst)
 		lst = lst->next;
 	return (lst);
 }
-/*
-int main()
-{
-    t_list *ilk;
-    char dizi[] = "ilk content";
-    t_list *iki;
-    char dizi2[] = "ikinci content";
-    ilk = ft_lstnew(dizi);
-    iki = ft_lstnew(dizi2)
-	printf("%s",ft_lstlast(&ilk)->content);   
-}*/

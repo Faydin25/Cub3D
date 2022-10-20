@@ -22,7 +22,7 @@ void    ft_check_map_next(t_data *data)
     i = -1;
     j = data->first_line;
     k = 0;
-    while (data->map[--j])
+    while (--j >= 0)
     {
         i = -1;
         while (data->map[j][++i])

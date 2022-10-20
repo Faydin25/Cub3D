@@ -23,13 +23,3 @@ t_list	*ft_lstnew(void *content)
 	new->next = NULL;
 	return (new);
 }
-/*
-#include <stdio.h>
-int	main()
-{
-	t_list *ilkeleman;
-	char	ilk[] = "1";
-
-	ilkeleman = ft_lstnew(ilk);
-	printf("%s\n", (ilkeleman)->content);
-}*/

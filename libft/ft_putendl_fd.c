@@ -20,24 +20,3 @@ void	ft_putendl_fd(char *s, int fd)
 		ft_putchar_fd('\n', fd);
 	}
 }
-/*
-#include <stdio.h>
-#include <fcntl.h>
-#include <stdlib.h>
-int main()
-{
-	char *a = " ramo";
-	char *cb = "aeksogjaodsjop";
-	int fd = open("deneme.txt",O_CREAT | O_RDWR, 0777);
-	ft_putendl_fd(a,fd); 
-	ft_putendl_fd(cb, fd);
-	FILE *b = fopen("deneme.txt","r");
-	char c;
-	while(!feof(b))
-	{
-		c = fgetc(b);
-		printf("%c",c);
-	}
-	fclose(b);
-	return 0;
-}*/

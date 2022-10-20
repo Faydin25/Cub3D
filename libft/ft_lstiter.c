@@ -22,28 +22,3 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 		lst = lst->next;
 	}
 }
-/*void	f(void *content)
-{
-	int	i = 0;
-	char	*a = (char *)content;
-	while (a[i])
-	{
-		a[i] -= 32;
-		i++;
-	}
-}
-
-int main()
-{
-    t_list *ilk;
-    char dizi[] = "ilk content";
-    t_list *iki;
-    char dizi2[] = "ikinci content";
-    ilk = ft_lstnew(dizi);
-	iki = ft_lstnew(dizi2);
-	ft_lstadd_back(&ilk,iki);
-    ft_lstiter(&ilk,f);
-    printf("%s",(ilk)->content);
-	printf("%s",(ilk)->next->content);
-
-}*/

@@ -51,19 +51,3 @@ char	*get_next_line(int fd)
 	buffer = get_new_buffer(buffer);
 	return (line);
 }
-/*
-#include <stdio.h>
-#include <fcntl.h>
-int	main(void)
-{
-	int	fd = open("deneme.txt", O_RDONLY, 0777);
-	char	*c;
-
-	c = get_next_line(fd);
-	printf("%s", c);
-	c = get_next_line(fd);
-	printf("%s", c);
-	c = get_next_line(fd);
-	printf("%s", c);
-	return (0);
-}*/

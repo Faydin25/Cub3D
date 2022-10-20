@@ -34,10 +34,14 @@ void    ft_go_color(char *line, t_data *data , int i)
 {
     int j;
     int nbr;
+    int t;
 
     j = 0;
+    t = 0;
     while (line[++i])
     {
+        if (line[i] == ',')
+            t++;
         if (line[i] >= '0' && line[i] <= '9')
         {
             nbr = ft_atoi(line + i);
@@ -54,6 +58,12 @@ void    ft_go_color(char *line, t_data *data , int i)
             ft_clear(data);
             exit(0);
         }
+    }
+    if (t != 2)
+    {
+        printf("Error!\n");
+        ft_clear(data);
+        exit(0);
     }
 }
 

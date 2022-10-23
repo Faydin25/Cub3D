@@ -132,4 +132,5 @@ void    ft_all_check_and_read_map(t_data *data, char *map)
     ft_check_map(data);
     ft_check_for_long(data);
     ft_check_once_to_map(data);
+    ft_check_file(data);
 }

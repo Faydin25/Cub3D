@@ -1,5 +1,13 @@
 #include "cub3d.h"
 
+void    ft_routine(t_data *data)
+{
+    //mlx_init();
+    //mlx_new_window();
+    //ft_put_image(data);
+    ;
+}
+
 int main(int ac, char **av)
 {
     t_data  *data;
@@ -9,7 +17,7 @@ int main(int ac, char **av)
         data = malloc(sizeof(t_data));
         ft_all_check_and_read_map(data, av[1]);
         printf("Okey");
-        //ft_routine();
+        ft_routine(data);
     }
     else
         printf("Wrong Arg!\n");

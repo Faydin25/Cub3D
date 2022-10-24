@@ -125,9 +125,9 @@ void    ft_all_check_and_read_map(t_data *data, char *map)
         printf("Extension Wrong!\n");
         exit(0);
     }
-    ft_read_map(data, map);//okey
+    ft_read_map(data, map);
     ft_check_have_map(data);
-    ft_adjust(data->map);//okey
+    ft_adjust(data->map);
     ft_check_wall(data);
     ft_check_map(data);
     ft_check_for_long(data);

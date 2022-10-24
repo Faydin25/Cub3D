@@ -1,5 +1,7 @@
 #ifndef CUB3D_H
 # define CUB3D_H
+# define WIN_HEIGHT 1080
+# define WIN_WIDTH 1920
 
 #include <stdio.h>
 #include <unistd.h>
@@ -8,12 +10,27 @@
 #include <fcntl.h>
 #include "./get_next_line/get_next_line.h"
 #include "./libft/libft.h"
+# include "./lib/minilibx/mlx.h"
 
-typedef struct s_cub3d
+typedef struct s_screen
 {
-    char    **map;
-    int     first_line;
-}           t_data;
+    int         width;
+    int         heigth;
+    void        *img;
+}               t_screen;
+
+typedef struct s_data
+{
+    char        **map;
+    int         first_line;
+    t_screen    *screen;
+}               t_data;
+
+typedef struct s_map
+{
+    void    *mlx;
+    void    *mlx_win;
+}           t_map;
 
 int     ft_check_cub(char *s);
 void    ft_clear(t_data *data);

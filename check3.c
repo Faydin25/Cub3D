@@ -1,32 +1,34 @@
 #include "cub3d.h"
 
 void    ft_check_file(t_data *data)
-{/*
+{
+    (void)data;
+    /*
     int fd;
 
     fd = open("./picture/...", O_RDONLY, 777); 
-    if (fd <= 0)
+    if (fd < 0)
     {
         printf("Wrong Path!\n");
         ft_clear(data);
         exit(0);
     }
     fd = open("./picture/...", O_RDONLY, 777);
-    if (fd <= 0)
+    if (fd < 0)
     {
         printf("Wrong Path!\n");
         ft_clear(data);
         exit(0);
     }
     fd = open("./picture/...", O_RDONLY, 777);
-    if (fd <= 0)
+    if (fd < 0)
     {
         printf("Wrong Path!\n");
         ft_clear(data);
         exit(0);
     }
     fd = open("./picture/...", O_RDONLY, 777);
-    if (fd <= 0)
+    if (fd < 0)
     {
         printf("Wrong Path!\n");
         ft_clear(data);

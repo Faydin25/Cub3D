@@ -61,15 +61,13 @@ int ft_len(char **map)
     return (max);
 }
 
-void    ft_addjust2(char **map)
+void    ft_addjust2(t_data *data ,char **map)
 {
     int len;
     int j;
     int i;
 
-    j = 0;
-    while (map[j] && map[j][0] != '1')
-        j++;
+    j =  data->first_line;
     while (map[j])
     {
         if (map[j][0] == '\n')
@@ -85,14 +83,12 @@ void    ft_addjust2(char **map)
     }
 }
 
-void    ft_adjust(char **map)
+void    ft_adjust(t_data *data, char **map)
 {
     int i;
     int j;
 
-    j = 0;
-    while (map[j] && map[j][0] != '1')
-        j++;
+    j = data->first_line;
     while (map[j])
     {
         i = -1;
@@ -103,11 +99,9 @@ void    ft_adjust(char **map)
         }
         j++;
     }
-    ft_addjust2(map);
+    ft_addjust2(data,map);
     i = 0;
-    j = 0;
-    while (map[j] && map[j][0] != '1')
-        j++;
+    j = data->first_line;
     printf("--------------------------\n");
     while (map[j])
     {
@@ -127,7 +121,8 @@ void    ft_all_check_and_read_map(t_data *data, char *map)
     }
     ft_read_map(data, map);
     ft_check_have_map(data);
-    ft_adjust(data->map);
+    ft_find(data);
+    ft_adjust(data ,data->map);
     ft_check_wall(data);
     ft_check_map(data);
     ft_check_for_long(data);

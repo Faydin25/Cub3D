@@ -8,15 +8,19 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include <fcntl.h>
-#include "./get_next_line/get_next_line.h"
+#include "get_next_line.h"
 #include "./libft/libft.h"
-# include "./lib/minilibx/mlx.h"
+#include "./mlx/mlx.h"
 
 typedef struct s_screen
 {
     int         width;
     int         heigth;
     void        *img;
+    char        *addr;
+    int		    bbp;
+    int		    line_len;
+    int		    endian;
 }               t_screen;
 
 typedef struct s_data
@@ -39,7 +43,8 @@ void    ft_check_wall(t_data *data);
 void    ft_all_check_and_read_map(t_data *data, char *map);
 void    ft_check_for_long(t_data *data);
 void    ft_check_once_to_map(t_data *data);
-void    ft_addjust2(char **map);
+void    ft_addjust2(t_data *data,char **map);
 void    ft_check_file(t_data *data);
+void    ft_find(t_data *data);
 
 #endif

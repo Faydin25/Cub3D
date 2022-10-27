@@ -55,7 +55,8 @@ void    ft_check_map(t_data *data)
         {
             if (data->map[j][i] != '1' && data->map[j][i] != '0' && \
             data->map[j][i] != 'N' && data->map[j][i] != 'S' && \
-            data->map[j][i] != 'W' && data->map[j][i] != 'E' && data->map[j][i] != '\n')
+            data->map[j][i] != 'W' && data->map[j][i] != 'E' && data->map[j][i] != '\n'&& \
+            data->map[j][i] != ' ')
             {
                 printf("Wrong Map!\n");
                 ft_clear(data);
@@ -72,11 +73,13 @@ void    ft_check_wall_next(t_data *data)
     int i;
     int j;
 
-    i = 0;
-    j = data->first_line - 1;
+    j = data->first_line;
     while (data->map[++j])
     {
-        if (data->map[j][0] != '1')
+        i = 0;
+        while (data->map[j][i] == ' ')
+            i++;
+        if (data->map[j][i] != '1')
         {
             printf("Wrong Map!\n");
             ft_clear(data);
@@ -90,14 +93,11 @@ void    ft_check_wall(t_data *data)
     int i;
     int j;
 
-    i = 0;
+    i = data->first_line;
     j = -1;
-    while (data->map[i] && data->map[i][0] != '1')
-        i++;
-    data->first_line = i;
     while (data->map[i][++j])
     {
-        if (data->map[i][j] != '1')
+        if (data->map[i][j] != '1' && data->map[i][j] != ' ')
         {
             printf("Wrong Map!\n");
             ft_clear(data);

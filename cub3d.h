@@ -1,7 +1,8 @@
 #ifndef CUB3D_H
 # define CUB3D_H
-# define WIN_HEIGHT 1080
+
 # define WIN_WIDTH 1920
+# define WIN_HEIGHT 1080
 
 #include <stdio.h>
 #include <unistd.h>
@@ -21,20 +22,26 @@ typedef struct s_screen
     int		    bbp;
     int		    line_len;
     int		    endian;
-}               t_screen;
+}
+               t_screen;
+typedef struct s_map
+{
+    void    *mlx;
+    void    *mlx_win;
+    char    *no;
+    char    *we;
+    char    *ea;
+    char    *so;
+}           t_map;
 
 typedef struct s_data
 {
     char        **map;
     int         first_line;
-    t_screen    *screen;
+    t_screen    screen[4];
+    t_map       s_map;
 }               t_data;
 
-typedef struct s_map
-{
-    void    *mlx;
-    void    *mlx_win;
-}           t_map;
 
 int     ft_check_cub(char *s);
 void    ft_clear(t_data *data);

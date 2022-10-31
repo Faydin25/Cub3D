@@ -107,4 +107,5 @@ void    ft_check_zero(t_data *data)
         }
         i++;
     }
+    free(s);
 }

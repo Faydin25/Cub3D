@@ -68,11 +68,9 @@ int ft_check_six(char **map)
 
 void    ft_go_color(char *line, t_data *data , int i)
 {
-    int j;
     int nbr;
     int t;
 
-    j = 0;
     t = 0;
     while (line[++i])
     {
@@ -106,9 +104,7 @@ void    ft_go_color(char *line, t_data *data , int i)
 void    ft_control_line(t_data *data, int j)
 {
     int i;
-    int k;
 
-    k = 0;
     while (--j >= 0)
     {
         i = 0;
@@ -142,10 +138,8 @@ void    ft_control_line(t_data *data, int j)
 
 void    ft_check_once_to_map(t_data *data)
 {
-    int i;
     int j;
 
-    i = 0;
     j = data->first_line;
     ft_control_line(data, j);
 }

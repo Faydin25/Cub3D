@@ -2,10 +2,8 @@
 
 void    ft_check_have_map(t_data *data)
 {
-    int i;
     int j;
 
-    i = 0;
     j = 0;
     while (data->map[j] && data->map[j][0] != '1')
         j++;
@@ -19,12 +17,10 @@ void    ft_check_have_map(t_data *data)
 
 void    ft_read_map(t_data *data, char *cubfile)
 {
-    int     i;
     int     fd;
     char    *line;
     char    *result;
 
-    i = 0;
     fd = open(cubfile, O_RDONLY);
     result = ft_strdup("");
     while (1)

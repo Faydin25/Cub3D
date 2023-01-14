@@ -16,11 +16,11 @@ int main(int ac, char **av)
 {
     t_data      *data;
     t_map       *map;
-    t_screen    *screen;
+    //t_screen    *screen;
 
     data = malloc(sizeof(t_data));
     map = malloc(sizeof(t_map));
-    screen = malloc(sizeof(t_screen));
+   // screen = malloc(sizeof(t_screen));
     if (ac == 2)
     {
         data = malloc(sizeof(t_data));

@@ -29,9 +29,10 @@ void    ft_check_map_next(t_data *data)
         {
             if (data->map[j][i] == 'N' || data->map[j][i] == 'S' || \
                 data->map[j][i] == 'W' || data->map[j][i] == 'E' || \
-                data->map[j][i] == 'F' || data->map[j][i] == 'C')
-                k++;
-                break ;
+                data->map[j][i] == 'F' || data->map[j][i] == 'C') {
+				k++;
+				break ;
+		}
         }
     }
     if (k != 6)

@@ -55,10 +55,8 @@ void    ft_control_last_lines(t_data *data, char *s, int j)
 
 void    ft_check_for_long(t_data *data)
 {
-    int i;
     int j;
 
-    i = 0;
     j = data->first_line;
     while (data->map[j])
     {

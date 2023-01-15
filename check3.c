@@ -51,13 +51,13 @@ int ft_check_six(char **map)
         i = -1;
         while (map[j][++i])
         {
-            if (map[j][i] == 'N' && map[j][i + 1] == 'O')
+            if (ft_strnstr(&map[j][i], "NO", 2))
                 t++;
-            if (map[j][i] == 'S' && map[j][i + 1] == 'O')
+            if (ft_strnstr(&map[j][i], "SO", 2))
                 t++;
-            if (map[j][i] == 'W' && map[j][i + 1] == 'E')
+            if (ft_strnstr(&map[j][i], "WE", 2))
                 t++;
-            if (map[j][i] == 'E' && map[j][i + 1] == 'A')
+            if (ft_strnstr(&map[j][i], "EA", 2))
                 t++;
         }
     }

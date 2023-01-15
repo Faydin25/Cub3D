@@ -2,7 +2,6 @@
 
 void    ft_clear(t_data *data)
 {
-
     (void)data;
     /*
 	int i;

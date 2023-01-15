@@ -20,6 +20,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+void	ft_check_value(char *s, int *t);
 int     ft_strlenn(char *buf);
 char	*get_next_line(int fd);
 char	*get_new_line(char *buffer);

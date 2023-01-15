@@ -5,24 +5,20 @@ void    ft_find(t_data *data)
     int i;
     int j;
 
-    i = 0;
-    while (data->map[i])
+    i = -1;
+    while (data->map[++i])
     {
-        j = 0;
-        while (data->map[i][j])
+        j = -1;
+        while (data->map[i][++j])
         {
             if (data->map[i][j] != '1' && data->map[i][j] != ' ')
-            {
-                break ;
-            }
+				break ;
             if (data->map[i][j] == '1')
             {
                 data->first_line = i;
                 return ;
             }
-            j++;
         }
-        i++;
     }
 }   
 
@@ -58,7 +54,6 @@ char    **ft_rebuild2(t_data *data, char **s)
 
     k = 0;
     i = data->first_line - 1;
-    j = 0;
     while (data->map[++i])
     {
         j = 0;
@@ -69,12 +64,9 @@ char    **ft_rebuild2(t_data *data, char **s)
     }
     while (data->map[++i])
     {
-        j = 0;
-        while (j <= k)
-        {
+        j = -1;
+        while (++j <= k)
             s[k++][j] = data->map[i][j];
-            j++;
-        }
     }
     return (s);
 }
@@ -87,11 +79,11 @@ void    ft_check_zero(t_data *data)
 
     s = ft_rebuild(data);
     s = ft_rebuild2(data, s);
-    i = data->first_line;
-    while (data->map[i])
+    i = data->first_line -1;
+    while (data->map[++i])
     {
-        j = 0;
-        while (data->map[i][j])
+        j = -1;
+        while (data->map[i][++j])
         {
             if (data->map[i][j] == '0')
             {
@@ -103,9 +95,7 @@ void    ft_check_zero(t_data *data)
                     exit(1);
                 }
             }
-            j++;
         }
-        i++;
     }
     free(s);
 }

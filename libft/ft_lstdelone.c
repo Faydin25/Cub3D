@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: faydin <42istanbul.com.tr>                 +#+  +:+       +#+        */
+/*   By: odursun <odursun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/20 18:16:16 by faydin            #+#    #+#             */
-/*   Updated: 2022/01/30 14:12:58 by faydin           ###   ########.tr       */
+/*   Created: 2022/01/07 14:12:31 by odursun           #+#    #+#             */
+/*   Updated: 2022/01/19 11:15:19 by odursun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	if (!lst)
+	if (!lst || !del)
 		return ;
-	del(lst->content);
-	free(lst);
+	if (del)
+		del (lst->content);
+	free (lst);
 }

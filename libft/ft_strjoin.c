@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: faydin <42istanbul.com.tr>                 +#+  +:+       +#+        */
+/*   By: odursun <odursun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/15 17:40:27 by faydin            #+#    #+#             */
-/*   Updated: 2022/01/28 15:22:37 by faydin           ###   ########.tr       */
+/*   Created: 2022/01/06 15:32:50 by odursun           #+#    #+#             */
+/*   Updated: 2022/01/09 18:15:40 by odursun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,22 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*new_str;
-	int		i;
-	int		j;
+	size_t	s1l;
+	size_t	s2l;
+	char	*str;
 
 	if (!s1 || !s2)
-		return (NULL);
-	new_str = (char *) malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
-	if (!new_str)
 		return (0);
-	i = 0;
-	while (s1[i] != '\0')
-	{
-		new_str[i] = s1[i];
-		i++;
-	}
-	j = 0;
-	while (s2[j] != '\0')
-		new_str[i++] = s2[j++];
-	new_str[i] = '\0';
-	return (new_str);
+	str = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2)) + sizeof(char));
+	if (!str)
+		return (str);
+	s1l = 0;
+	s2l = 0;
+	while (s1 && s1[s1l])
+		str[s2l++] = s1[s1l++];
+	s1l = 0;
+	while (s2 && s2[s1l])
+		str[s2l++] = s2[s1l++];
+	str[s2l] = '\0';
+	return (str);
 }

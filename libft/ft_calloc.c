@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: faydin <42istanbul.com.tr>                 +#+  +:+       +#+        */
+/*   By: odursun <odursun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/15 13:45:07 by faydin            #+#    #+#             */
-/*   Updated: 2022/01/15 14:13:12 by faydin           ###   ########.tr       */
+/*   Created: 2022/01/09 16:23:37 by odursun           #+#    #+#             */
+/*   Updated: 2022/01/13 11:27:37 by odursun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,19 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	size_t	tot_size;
-	void	*dst;
+	char	*memory;
+	size_t	i;
 
-	tot_size = size * count;
-	dst = malloc(tot_size);
-	if (!dst)
-		return (0);
-	ft_memset(dst, 0, tot_size);
-	return (dst);
+	if (count == UINTPTR_MAX || size == UINTPTR_MAX)
+		return (NULL);
+	memory = malloc(count * size);
+	if (!memory)
+		return (NULL);
+	i = 0;
+	while (i < count * size)
+	{
+		memory[i] = 0;
+		i++;
+	}
+	return (memory);
 }

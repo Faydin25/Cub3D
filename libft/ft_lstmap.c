@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: faydin <42istanbul.com.tr>                 +#+  +:+       +#+        */
+/*   By: odursun <odursun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/20 18:27:08 by faydin            #+#    #+#             */
-/*   Updated: 2022/01/30 14:27:01 by faydin           ###   ########.tr       */
+/*   Created: 2022/01/07 15:01:42 by odursun           #+#    #+#             */
+/*   Updated: 2022/01/13 11:17:15 by odursun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,27 @@
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*new_lst;
-	t_list	*elem;
+	t_list	*new;
+	t_list	*p_new;
+	t_list	*p_old;
 
 	if (!lst)
-		return (0);
-	new_lst = 0;
-	while (lst)
+		return (NULL);
+	new = ft_lstnew((*f)(lst->content));
+	if (!new)
+		return (NULL);
+	p_new = new;
+	p_old = lst->next;
+	while (p_old)
 	{
-		elem = ft_lstnew(f(lst->content));
-		if (!elem)
+		p_new->next = ft_lstnew((*f)(p_old->content));
+		if (!p_new)
 		{
-			ft_lstclear(&new_lst, del);
-			return (0);
+			ft_lstclear(&new, del);
+			return (NULL);
 		}
-		ft_lstadd_back(&new_lst, elem);
-		lst = lst->next;
+		p_new = p_new->next;
+		p_old = p_old->next;
 	}
-	return (new_lst);
+	return (new);
 }

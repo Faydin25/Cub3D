@@ -3,27 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: faydin <42istanbul.com.tr>                 +#+  +:+       +#+        */
+/*   By: odursun <odursun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/09 17:57:11 by faydin            #+#    #+#             */
-/*   Updated: 2022/01/28 17:23:06 by faydin           ###   ########.tr       */
+/*   Created: 2022/01/08 19:10:22 by odursun           #+#    #+#             */
+/*   Updated: 2022/01/09 18:15:40 by odursun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+char	*ft_strrchr(const char *src, int c)
 {
-	int	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	while (i >= 0)
-	{
-		if (s[i] == (char)c)
-			return ((char *)(s + i));
-		i--;
-	}
-	return (NULL);
+	if (!ft_strchr(src, (char)c))
+		return (0);
+	while (*src)
+		src++;
+	while (*src != (char)c)
+		src--;
+	return ((char *)src);
 }

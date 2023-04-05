@@ -3,57 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: faydin <42istanbul.com.tr>                 +#+  +:+       +#+        */
+/*   By: odursun <odursun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/18 16:07:34 by faydin            #+#    #+#             */
-/*   Updated: 2022/01/29 22:29:22 by faydin           ###   ########.tr       */
+/*   Created: 2022/01/09 16:24:11 by odursun           #+#    #+#             */
+/*   Updated: 2022/01/14 10:58:41 by odursun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	int	ft_abs(int nb)
+char	*ft_itoa(int n)
 {
-	if (nb < 0)
-		nb *= -1;
-	return (nb);
-}
+	char	*r;
+	int		tmp;
+	int		a;
 
-static	int	ft_intlen(int nb)
-{
-	int	i;
-
-	i = 0;
-	if (nb == 0)
-		return (1);
-	while (nb)
+	a = 1;
+	tmp = n;
+	while (tmp && a++)
+		tmp = tmp / 10;
+	r = (char *)malloc(sizeof(char) * ((n < 0) + a + (n == 0)));
+	if (!r)
+		return (r);
+	r = r + (n < 0) + a - 1 + (n == 0);
+	*r = '\0';
+	if (n == 0)
+		*(--r) = '0';
+	a = (n >= 0) * 2 - 1;
+	while (n)
 	{
-		nb /= 10;
-		i++;
+		*(--r) = (n % (10 * a)) * a + '0';
+		n /= 10;
 	}
-	return (i);
-}
-
-char	*ft_itoa(int nb)
-{
-	int		len;
-	char	*return_val;
-	int		is_neg;
-
-	is_neg = nb < 0;
-	len = ft_intlen(nb) + is_neg;
-	return_val = (char *)malloc ((len + 1) * sizeof(*return_val));
-	if (!return_val)
-		return (NULL);
-	return_val[len] = '\0';
-	len--;
-	while (len >= 0)
-	{
-		return_val[len] = ((char)ft_abs(nb % 10) + 48);
-		nb /= 10;
-		len--;
-	}
-	if (is_neg)
-		return_val[0] = '-';
-	return (return_val);
+	if (a < 0)
+		*(--r) = '-';
+	return (r);
 }

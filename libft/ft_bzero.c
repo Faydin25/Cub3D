@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: faydin <42istanbul.com.tr>                 +#+  +:+       +#+        */
+/*   By: odursun <odursun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/06 15:37:21 by faydin            #+#    #+#             */
-/*   Updated: 2022/01/18 00:25:45 by faydin           ###   ########.tr       */
+/*   Created: 2022/01/09 16:21:54 by odursun           #+#    #+#             */
+/*   Updated: 2022/01/13 11:24:28 by odursun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,9 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	ft_memset(s, '\0', n);
+	while (n--)
+		*(char *)s++ = 0;
 }
+/*
+ft_memset(s, '\0', n);
+*/
